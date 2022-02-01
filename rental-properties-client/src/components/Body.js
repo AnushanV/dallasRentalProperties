@@ -7,15 +7,19 @@ import SearchRadiusSelector from "./SearchRadiusSelector";
 
 const Body = () => {
     
+    //api search parameters
     const [lngLat, setLngLat] = useState([-97.03985, 32.92495])
     const [buffer, setBuffer] = useState(500);
+
+    //stores the average rent from the fetch results
     const [avgRent, setAvgRent] = useState(0);
 
+    //used to fetch from api
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
     
-    
+    //fetch from api
     useEffect(() => {
         fetch(`http://localhost:8080/findPropertiesAround/${lngLat[1]}/${lngLat[0]}/${buffer}`)
         .then(res => res.json())
@@ -31,8 +35,8 @@ const Body = () => {
         )
     }, [lngLat, buffer]);
 
+    //update average rent value when the items are changed
     useEffect(() => {
- 
         setAvgRent(()=> {
             if(items.length <= 0) return 0;
 

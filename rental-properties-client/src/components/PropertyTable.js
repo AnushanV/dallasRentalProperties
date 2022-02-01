@@ -3,7 +3,7 @@ import { Paper, TableContainer, TableHead, TableCell, TableRow, Table, TableBody
 
 const PropertyTable = (props) => {
 
-    //display error message if api fetch fails
+    //display error message if fetch fails
     if (props.error) {
         return (
             <Box mx={2} component={Paper} sx={{maxHeight:'70vh', minHeight:'70vh'}}>
@@ -11,6 +11,7 @@ const PropertyTable = (props) => {
             </Box>
         );
     } 
+    //display loading message if waiting for fetch results
     else if (!props.isLoaded) {
         return (
             <Box mx={2} component={Paper} sx={{maxHeight:'70vh', minHeight:'70vh'}}>
@@ -18,6 +19,7 @@ const PropertyTable = (props) => {
             </Box>
         );
     } 
+    //display table of properties and rent
     else {
         return (
             <Box mx={2}>
