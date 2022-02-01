@@ -40,21 +40,20 @@ const Map = (props) => {
     //update popup text when average rent is changed
     useEffect(() =>{
         setPopupText(`Average rent within ${props.buffer}m: ${props.avgRent ? '$' + props.avgRent.toFixed(2) : 'Unavailable'}`);
-    }, [props.avgRent]);
+    }, [props.avgRent, props.buffer]);
 
     return (
         <MapGL
             {...viewport}
             width="55vw"
             height="85vh"
-            onViewportChange={nextViewport => setViewport(nextViewport)}
             onViewportChange={setViewport}
             mapStyle= 'mapbox://styles/mapbox/streets-v11'
             mapboxApiAccessToken={accessToken}
             onClick={handleClick}
         >
             <Marker latitude={lngLat[1]} longitude={lngLat[0]} className='marker' offsetLeft={-10} offsetTop={-24}>
-                <img src={require('../marker-icon.png')}/>
+                <img src={require('../marker-icon.png')} alt="Searching Here"/>
             </Marker>
             <Popup latitude={lngLat[1]} longitude={lngLat[0]} className='marker' offsetLeft={0} offsetTop={-40}>
                 {popupText}
