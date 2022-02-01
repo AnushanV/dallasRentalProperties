@@ -6,9 +6,6 @@ import SearchRadiusSelector from "./SearchRadiusSelector";
 
 
 const Body = () => {
-
-    //var latitude = 32.92495;
-    //var longitude = -97.03985;
     
     const [lngLat, setLngLat] = useState([-97.03985, 32.92495])
     const [buffer, setBuffer] = useState(500);

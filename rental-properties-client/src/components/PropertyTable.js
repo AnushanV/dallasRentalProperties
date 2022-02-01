@@ -3,6 +3,7 @@ import { Paper, TableContainer, TableHead, TableCell, TableRow, Table, TableBody
 
 const PropertyTable = (props) => {
 
+    //display error message if api fetch fails
     if (props.error) {
         return (
             <Box mx={2} component={Paper} sx={{maxHeight:'70vh', minHeight:'70vh'}}>

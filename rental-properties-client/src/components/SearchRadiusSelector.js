@@ -4,6 +4,7 @@ import React from "react";
 
 const SearchRadiusSelector = (props) => {
 
+    //update search radius
     function handleChange(e){
         props.passBuffer(e.target.value);
     }
